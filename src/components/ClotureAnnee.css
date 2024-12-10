@@ -1,0 +1,155 @@
+/* Container principal */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titre principal */
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Sections */
+  .sections {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .section {
+    flex: 1;
+    min-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tableau stylé */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .styled-table th {
+    background-color: #007bff;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  
+  .styled-table tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .styled-table tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .styled-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .styled-table td {
+    font-size: 14px;
+  }
+  
+  /* Tags */
+  .tag {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .tag.green {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .tag.red {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  /* Boutons */
+  .btn-action {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-action:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #218838;
+  }
+  
+  /* Liste des redoublants */
+  .redoublants-list {
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .redoublants-list li {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  /* Historique */
+.historique-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .historique-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  
