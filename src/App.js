@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Inscription from "./components/Inscription";
 import Navbar from "./components/Navbar";
 import ClassRepartition from "./components/ClassRepartition";
+import "./App.css";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/inscription" element={<Inscription />} />
             <Route path="/ClassRepartition" element={<ClassRepartition />} />
-            <Route path="/" element={<h2>Bienvenue ! Choisissez une section.</h2>} />
+            <Route path="/" element={<h2>Bienvenue sur le site de Saint-Vinci</h2>} />
           </Routes>
         </main>
       </div>

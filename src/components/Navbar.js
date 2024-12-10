@@ -12,7 +12,7 @@ const Navbar = () => {
             Saint Vinci
           </Link>
 
-          <button
+          <button   
             onClick={() => setIsOpen(!isOpen)}
             className="text-gray-800 focus:outline-none md:hidden"
           >

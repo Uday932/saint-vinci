@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import '../App.css';  // Utiliser le bon chemin relatif
+import monImage from '../assets/MonImage.png';  // Importer l'image
 
 const Inscription = () => {
+  // On crée un état pour stocker les données du formulaire
   const [formData, setFormData] = useState({
-    nom: "",
-    prenom: "",
-    age: "",
-    classe: "",
+    nom: '',
+    prenom: '',
+    naissance: '',
+    classe: '',
   });
+
+  // État pour gérer la soumission du formulaire
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Fonction pour gérer les changements dans le formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -17,41 +23,87 @@ const Inscription = () => {
     });
   };
 
+  // Fonction pour soumettre le formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Élève inscrit :", formData);
-    setIsSubmitted(true);
+    // Ici on pourrait envoyer les données à une base de données ou autre
+    console.log('Élève inscrit :', formData);
+    setIsSubmitted(true); // Marque la soumission du formulaire
   };
 
   return (
-    <div className="p-8 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-6">Inscription des élèves</h2>
+    <div className="inscription-container">
+      {/* Affichage de l'image */}
+      <div className="image-container">
+        <img src={monImage} alt="Une belle image" className="inscription-image" />
+      </div>
+      
+      <h2 className="form-title">Inscription des élèves</h2>
+      
       {isSubmitted && (
-        <div className="p-4 mb-4 bg-green-200 text-green-800 rounded-md">
+        <div className="confirmation-message">
           Votre inscription a été prise en compte !
         </div>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {["nom", "prenom", "age", "classe"].map((field) => (
-          <div key={field}>
-            <label className="block font-semibold capitalize">
-              {field}:
-            </label>
+      
+      <form onSubmit={handleSubmit} className="form-container">
+        <div className="input-group">
+          <label htmlFor="nom" className="form-label">
+            Nom:
             <input
-              type={field === "age" ? "number" : "text"}
-              name={field}
-              value={formData[field]}
+              type="text"
+              name="nom"
+              value={formData.nom}
               onChange={handleChange}
-              className="w-full p-2 border rounded-md"
+              className="form-input"
+              required
             />
-          </div>
-        ))}
-        <button
-          type="submit"
-          className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-        >
-          S'inscrire
-        </button>
+          </label>
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="prenom" className="form-label">
+            Prénom:
+            <input
+              type="text"
+              name="prenom"
+              value={formData.prenom}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </label>
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="naissance" className="form-label">
+            Date de Naissance:
+            <input
+              type="date"
+              name="naissance"
+              value={formData.naissance}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </label>
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="classe" className="form-label">
+            Classe:
+            <input
+              type="text"
+              name="classe"
+              value={formData.classe}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </label>
+        </div>
+
+        <button type="submit" className="submit-button">S'inscrire</button>
       </form>
     </div>
   );
