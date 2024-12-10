@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import './App.css'; 
+import './App.css';
+import monImage from '/Users/ezzatsaoud/Desktop/SupDeVinci/Mise en situation Dev /saint-vinci/src/assets/MonImage.png';  // Importer l'image
 
 const Inscription = () => {
   // On crée un état pour stocker les données du formulaire
   const [formData, setFormData] = useState({
     nom: '',
     prenom: '',
-    age: '',
+    naissance: '',
     classe: '',
   });
 
@@ -32,6 +33,9 @@ const Inscription = () => {
 
   return (
     <div>
+      {/* Affichage de l'image */}
+      <img src={monImage} alt="Une belle image" style={{ width: '60%', height: 'auto' }} />
+      
       <h2>Inscription des élèves</h2>
       {isSubmitted && (
         <div className="confirmation-message">
@@ -63,11 +67,11 @@ const Inscription = () => {
         </div>
         <div>
           <label>
-            Âge:
+            Date de Naissance:
             <input
               type="number"
-              name="age"
-              value={formData.age}
+              name="Date de naissance"
+              value={formData.naissance}
               onChange={handleChange}
             />
           </label>
