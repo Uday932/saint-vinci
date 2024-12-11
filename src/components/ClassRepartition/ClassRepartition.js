@@ -1,64 +1,93 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './ClassRepartition.css';
 
 const ClassRepartition = () => {
-  const [selectedClass, setSelectedClass] = useState("");
-  const students = [
-    { id: 1, name: "Alice", class: "CP" },
-    { id: 2, name: "Bob", class: "CP" },
-    { id: 3, name: "Charlie", class: "CE1" },
-    { id: 4, name: "David", class: "CE1" },
-    { id: 5, name: "Eve", class: "CE2" },
-    { id: 6, name: "Frank", class: "CE2" },
-    { id: 7, name: "Grace", class: "CM1" },
-    { id: 8, name: "Caroline", class: "CM1" },
-    { id: 9, name: "Elise", class: "CM1" },
-    { id: 10, name: "Marie", class: "CM2" },
-    { id: 11, name: "Pauline", class: "CM2" },
+  const [selectedClass, setSelectedClass] = useState("");  // Classe sélectionnée
+  const [classes, setClasses] = useState([]);  // Liste des classes
+  const [students, setStudents] = useState([]);  // Liste des élèves
+  const [loading, setLoading] = useState(true);  // Chargement des données
 
+  // Effectuer l'appel API pour récupérer les classes
+  useEffect(() => {
+    const fetchClasses = async () => {
+      try {
+        const response = await fetch('/api/classes'); // Récupérer la liste des classes
+        const data = await response.json();
+        setClasses(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Erreur lors de la récupération des classes', error);
+        setLoading(false);
+      }
+    };
 
-  ];
+    fetchClasses();
+  }, []);
 
-  const filterStudentsByClass = (className) => {
-    return students.filter((student) => student.class === className);
-  };
+  // Fonction pour récupérer les élèves de la classe sélectionnée
+  useEffect(() => {
+    const fetchStudents = async () => {
+      if (selectedClass) {
+        try {
+          const response = await fetch(`/api/classes/${selectedClass}`); // Récupérer la classe spécifique
+          const data = await response.json();
+          setStudents(data.eleves); // Assurez-vous que 'eleves' est la bonne propriété
+        } catch (error) {
+          console.error('Erreur lors de la récupération des élèves', error);
+        }
+      } else {
+        setStudents([]); // Réinitialiser la liste des élèves si aucune classe n'est sélectionnée
+      }
+    };
+
+    fetchStudents();
+  }, [selectedClass]);
 
   return (
-    <div className="p-8 bg-white rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold mb-6">Répartition des élèves par classe</h1>
+    <div className="class-repartition-container">
+      <h1 className="class-repartition-title">Répartition des élèves par classe</h1>
 
-      <div className="mb-6">
-        <label className="block font-semibold mb-2">Sélectionner une classe :</label>
+      <div className="select-class-container">
+        <label className="select-class-label">Sélectionner une classe :</label>
         <select
-          className="w-full p-2 border rounded-md"
+          className="select-class-dropdown"
           value={selectedClass}
           onChange={(e) => setSelectedClass(e.target.value)}
         >
           <option value="">-- Choisir une classe --</option>
-          <option value="CP">CP</option>
-          <option value="CE1">CE1</option>
-          <option value="CE2">CE2</option>
-          <option value="CM1">CM1</option>
-          <option value="CM2">CM2</option>
-
+          {loading ? (
+            <option>Chargement des classes...</option>
+          ) : (
+            classes.length > 0 ? (
+              classes.map((classe) => (
+                <option key={classe.id} value={classe.id}>
+                  {classe.classerang}
+                </option>
+              ))
+            ) : (
+              <option>Aucune classe disponible</option>
+            )
+          )}
         </select>
       </div>
 
-      {selectedClass && (
-        <div className="mt-6">
-          <h2 className="text-xl font-bold mb-4">Liste des élèves en {selectedClass}</h2>
-          <table className="w-full border-collapse">
+      {students.length > 0 && (
+        <div className="student-list-container">
+          <h2 className="student-list-title">Élèves dans la classe {selectedClass} :</h2>
+          <table className="student-table">
             <thead>
-              <tr className="bg-blue-600 text-white">
-                <th className="border p-2">ID</th>
-                <th className="border p-2">Nom</th>
+              <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de Naissance</th>
               </tr>
             </thead>
             <tbody>
-              {filterStudentsByClass(selectedClass).map((student) => (
-                <tr key={student.id} className="even:bg-gray-100">
-                  <td className="border p-2">{student.id}</td>
-                  <td className="border p-2">{student.name}</td>
+              {students.map((student) => (
+                <tr key={student.id}>
+                  <td>{student.name}</td>
+                  <td>{student.lastname}</td>
+                  <td>{new Date(student.datenaissance).toLocaleDateString()}</td>
                 </tr>
               ))}
             </tbody>

@@ -11,6 +11,11 @@ const Inscription = () => {
     classe: '',
   });
 
+  // Liste des classes de Petite Section (PS) à CM2
+  const classes = [
+    "PS", "MS", "GS", "CP", "CE1", "CE2", "CM1", "CM2"
+  ];
+
   // État pour gérer la soumission du formulaire
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -92,14 +97,20 @@ const Inscription = () => {
         <div className="input-group">
           <label htmlFor="classe" className="form-label">
             Classe:
-            <input
-              type="text"
+            <select
               name="classe"
               value={formData.classe}
               onChange={handleChange}
               className="form-input"
               required
-            />
+            >
+              <option value="">-- Choisir une classe --</option>
+              {classes.map((classe, index) => (
+                <option key={index} value={classe}>
+                  {classe}
+                </option>
+              ))}
+            </select>
           </label>
         </div>
 
