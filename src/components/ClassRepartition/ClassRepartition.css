@@ -1,0 +1,81 @@
+/* Conteneur principal de la page de répartition */
+.class-repartition-container {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titre principal */
+  .class-repartition-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Conteneur pour le sélecteur de classe */
+  .select-class-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Label pour le sélecteur */
+  .select-class-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  /* Style du sélecteur de classe */
+  .select-class-dropdown {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  /* Section pour afficher la liste des élèves */
+  .student-list-container {
+    margin-top: 2rem;
+  }
+  
+  /* Titre de la liste des élèves */
+  .student-list-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Style du tableau */
+  .student-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Style des en-têtes du tableau */
+  .student-table th {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  /* Style des cellules du tableau */
+  .student-table td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  /* Style pour les lignes paires */
+  .student-table tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  
+  /* Style pour survoler les lignes du tableau */
+  .student-table tr:hover {
+    background-color: #1d4ed8;
+    color: white;
+  }
+  
