@@ -1,0 +1,104 @@
+/* src/styles/Inscription.css */
+
+/* Conteneur principal de la page d'inscription */
+.inscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
+    margin: 2rem auto;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Conteneur de l'image */
+  .image-container {
+    display: flex;
+    justify-content: center; /* Centre l'image horizontalement */
+    align-items: center; /* Centre l'image verticalement */
+    margin-bottom: 2rem;
+    width: 100%; /* Assurez-vous que le conteneur de l'image prend toute la largeur */
+  }
+  
+  /* Style de l'image */
+  .inscription-image {
+    max-width: 50%; /* Limite la taille de l'image */
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Titre du formulaire */
+  .form-title {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Conteneur du formulaire */
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Groupement des champs de formulaire */
+  .input-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    font-size: 16px;
+    color: #34495e;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+  }
+  
+  .form-input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+  
+  /* Bouton d'envoi */
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Message de confirmation */
+  .confirmation-message {
+    background-color: #2ecc71;
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  

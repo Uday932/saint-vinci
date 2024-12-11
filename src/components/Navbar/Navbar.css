@@ -1,0 +1,29 @@
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: var(--primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links li a {
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .nav-links li a:hover {
+    background: var(--hover-color);
+  }
+  
