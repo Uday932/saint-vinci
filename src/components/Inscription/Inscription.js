@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../App.css';  // Utiliser le bon chemin relatif
-import monImage from '../assets/MonImage.png';  // Importer l'image
+import '../Inscription/Inscription.css';
+import monImage from '../../assets/MonImage.png';  // Importer l'image
 
 const Inscription = () => {
   // On crée un état pour stocker les données du formulaire

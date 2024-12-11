@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './ClassRepartition.css';
 
 const ClassRepartition = () => {
   const [selectedClass, setSelectedClass] = useState("");

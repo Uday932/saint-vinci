@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,14 @@ const Navbar = () => {
               to="/ClassRepartition"
               className="block mt-4 md:inline-block md:mt-0 text-gray-800 hover:text-blue-600 transition duration-300 mx-2"
             >
-              Répartition par Classe
+              Liste des élèves
+            </Link>
+
+            <Link
+              to="/ClotureAnnee"
+              className="block mt-4 md:inline-block md:mt-0 text-gray-800 hover:text-blue-600 transition duration-300 mx-2"
+            >
+              Cloture classe
             </Link>
           </div>
         </div>
