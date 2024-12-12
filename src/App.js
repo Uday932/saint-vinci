@@ -4,6 +4,7 @@ import Inscription from "./components/Inscription/Inscription";
 import Navbar from "./components/Navbar/Navbar";
 import ClassRepartition from "./components/ClassRepartition/ClassRepartition";
 import ClotureAnnee from "./components/ClotureAnnee/ClotureAnnee";
+// import Login from "./components/Login/Login";
 import "./App.css";
 
 function App() {
